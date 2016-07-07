@@ -88,6 +88,16 @@ namespace WindowsFormsApplication1
             string[] employees = new string[]{"rrhh","proveduría","compras","mercadeo"};
             ComboBox1.Items.AddRange(employees);
             ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //List<string> mylist = new List<string>() { "stealthy", "ninja", "panda" };
+            //ListViewItem item = new ListViewItem();
+            //item.Text = "bar";
+            //item.SubItems.Add("foo");
+            //item.SubItems.Add("foo2");
+            //listView1.Items.Add(item);
+            //List<string> mylist = new List<string>() { "stealthy", "ninja", "panda" };
+            //listView1.DataSource = mylist;
+            //listView1.DataBind();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -214,6 +224,25 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             ListarEmpleados();
+
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = typeof(Empleado);
+            //foreach (Empleado item in Empleados)
+            //{
+            //    bs.Add(item);                
+            //}
+            //dataGridView1.DataSource = bs;
+            //dataGridView1.AutoGenerateColumns = true;
+            //dataGridView1.DataBindings.Add("ss", bs, "");
+            //txtModel.DataBindings.Add("Text", bs, "Name");
+
+
+            //
+            var bindingList = new BindingList<Empleado>(Empleados);
+            var source = new BindingSource(bindingList, null);
+            dataGridView1.DataSource = source;
+
+
         }
 
         public void clearAllTexboxes() {
